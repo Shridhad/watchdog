@@ -48,10 +48,26 @@ $spacing: 5px;
 
       &.building {
         @include project-box($yellow);
-        animation: fade 0.5s alternate infinite ease-in-out;
-        -webkit-animation: fade 0.5s alternate infinite ease-in-out;
-        -moz-animation: fade 0.5s alternate infinite ease-in-out;
-        -ms-animation: fade 0.5s alternate infinite ease-in-out;
+
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          overflow: hidden;
+          @include background-image(linear-gradient( -45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent ));
+          @include background-size(50px 50px);
+          @include animation(move 2s linear infinite);
+        }
+      }
+
+      &.failed.building {
+        background-color: #f0a3a3;
+        @include background-image(linear-gradient(#f0a3a3, #B20000));
       }
 
       p.status {
@@ -69,23 +85,11 @@ $spacing: 5px;
   }
 }
 
-
-@keyframes 'fade' {
-  0% { opacity:1.0; }
-  100% { opacity:0.5; }
-}
-
-@-webkit-keyframes 'fade' {
-  0% { opacity:1.0; }
-  100% { opacity:0.5; }
-}
-
-@-moz-keyframes 'fade' {
-  0% { opacity:1.0; }
-  100% { opacity:0.5; }
-}
-
-@-ms-keyframes 'fade' {
-  0% { opacity:1.0; }
-  100% { opacity:0.5; }
+@include keyframes(move) {
+  0% {
+     background-position: 0 0;
+  }
+  100% {
+     background-position: 50px 50px;
+  }
 }
