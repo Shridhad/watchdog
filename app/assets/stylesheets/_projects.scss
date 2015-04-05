@@ -58,6 +58,14 @@ $spacing: 5px;
         margin-top: 20px;
       }
     }
+
+    h1, p {
+      box-sizing: border-box;
+      padding-left: 10px;
+      padding-right: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 }
 
