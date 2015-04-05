@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activesupport',      '~> 3.2.13'
-gem 'compass',            '~> 0.12.1'
+gem 'compass',            '~> 1.0.1'
 gem 'foreman',            '~> 0.63.0'
 gem 'httparty',           '~> 0.11.0'
 gem 'puma',               '~> 2.1.0'
