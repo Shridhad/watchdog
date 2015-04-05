@@ -11,9 +11,11 @@ class Views.FailureTile extends Backbone.View
           <a href="{{ build_url }}" target="_TOP">{{ name.substr(0, name.indexOf(':')) }}</a>
         </h1>
         <p class="status">
+          {[ if(!!culprits.length) { ]}
           <span>
             Broken by <strong>{{ culprits }}</strong>,
           </span>
+          {[ } ]}
           <time class="last-build-time invisible" datetime="{{ last_build_time }}" title="{{ human_last_build_time }}">
             {{ human_last_build_time }}
           </time>

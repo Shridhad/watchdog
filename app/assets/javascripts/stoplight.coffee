@@ -5,5 +5,7 @@
   App:         {}
 }
 
-@_.templateSettings = { interpolate : /\{\{(.+?)\}\}/g
+@_.templateSettings = {
+  interpolate : /\{\{(.+?)\}\}/g,
+  evaluate : /\{\[([\s\S]+?)\]\}/g
 };

@@ -8,7 +8,8 @@
   };
 
   this._.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g
+    interpolate: /\{\{(.+?)\}\}/g,
+    evaluate: /\{\[([\s\S]+?)\]\}/g
   };
 
 }).call(this);
