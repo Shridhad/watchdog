@@ -1,6 +1,6 @@
 module Stoplight
   class Project
-    attr_accessor :name, :build_url, :last_build_id, :last_build_time, :last_build_status, :current_status
+    attr_accessor :name, :build_url, :last_build_id, :last_build_time, :last_build_status, :current_status, :culprits
 
     # Initialize (new) takes in a hash of options in the following format:
     #
@@ -12,6 +12,7 @@ module Stoplight
     #   :last_build_time => '2012-05-24T03:19:53Z',
     #   :last_build_status => 0,
     #   :current_status => 1,
+    #   :culprits = "Mr. ABCD"
     # }
     #
     # - `name` - the name of this project
@@ -26,6 +27,7 @@ module Stoplight
     #   - -1: unknown
     #   -  0: done (sleeping, waiting)
     #   -  1: building (building, working, compiling)
+    # - `culprits` - name of culprit
     def initialize(options = {})
       @options = options
 
@@ -35,6 +37,7 @@ module Stoplight
       @last_build_time = parse_date(options[:last_build_time])
       @last_build_status = parse_last_build_status(options[:last_build_status])
       @current_status = parse_current_status(options[:current_status])
+      @culprits = options[:culprits]
     end
 
     def building?

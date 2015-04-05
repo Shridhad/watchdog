@@ -21,8 +21,18 @@ module Stoplight::Providers
            :last_build_id => project['lastBuildLabel'],
            :last_build_time => project['lastBuildTime'],
            :last_build_status => status_to_int(project['lastBuildStatus']),
-           :current_status => activity_to_int(project['activity'])
+           :current_status => activity_to_int(project['activity']),
+           :culprits => get_culprits(project)
           })
+      end
+    end
+
+    private
+    def get_culprits(project)
+      if !project['messages'].nil?
+        project['messages'][0]['message'][0]['text']
+      else
+        []
       end
     end
   end
