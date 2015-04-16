@@ -55,11 +55,7 @@
         $h1 = $element.find('h1');
         $a = $h1.find('a');
         $p = $element.find('p');
-        if ($a.html()) {
-          maxCharacterWidth = ($element.width() / $a.html().length) * 1.5;
-        } else {
-          maxCharacterWidth = 1;
-        }
+        maxCharacterWidth = ($element.width() / $a.html().length) * 1.5;
         $h1.css({
           fontSize: Math.min($element.height() / 3.0, maxCharacterWidth),
           marginTop: $element.height() / 4.0

@@ -7,9 +7,10 @@ class Views.SuccessTile extends Backbone.View
   template: _.template(
     """
       <article class="project success">
-        <video preload="auto" autoplay="autoplay" muted="muted" loop="loop">
-          <source src="//i.imgur.com/EZoBi4O.mp4" type="video/mp4">
-        </video>
+        <h1>
+          <a href="javascript:void();">&#x2713; Hooray!</a>
+        </h1>
+        <p class="status">All builds are passing!</p>
       </article>
     """)
 
