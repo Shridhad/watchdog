@@ -58,7 +58,7 @@ def load_projects
 
   @projects = @servers.collect do |server|
     Thread.new do
-      server_projects = Timeout::timeout(5) do
+      server_projects = Timeout::timeout(10) do
         get_server(server).projects
       end
 
